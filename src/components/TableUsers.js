@@ -59,7 +59,7 @@ const TableUsers = (props) => {
         breakLabel="..."
         nextLabel="next >"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={2}
         pageCount={totalPages}
         previousLabel="< previous"
         pageClassName="page-item"
