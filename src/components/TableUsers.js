@@ -9,6 +9,8 @@ import _ from "lodash";
 import { debounce } from "lodash";
 import "./TableUsers.scss";
 import { CSVLink } from "react-csv";
+import Papa from "papaparse";
+import { toast } from "react-toastify";
 
 const TableUsers = (props) => {
   const [listUsers, setListUsers] = useState([]);
@@ -125,6 +127,51 @@ const TableUsers = (props) => {
     }
   };
 
+  const handleImportCSV = (event) => {
+    if (event.target && event.target.files && event.target.files[0]) {
+      let file = event.target.files[0];
+
+      if (file.type !== "text/csv") {
+        toast.error("Only accept csv files...");
+        return;
+      }
+      Papa.parse(file, {
+        // header: true,
+        complete: function (results) {
+          let rawCSV = results.data;
+          if (rawCSV.length > 0) {
+            if (rawCSV[0] && rawCSV[0].length === 3) {
+              if (
+                rawCSV[0][0] !== "email" ||
+                rawCSV[0][1] !== "first_name" ||
+                rawCSV[0][2] !== "last_name"
+              ) {
+                toast.error("Wrong format header CSV file!");
+              } else {
+                let result = [];
+
+                rawCSV.map((item, index) => {
+                  if (index > 0 && item.length === 3) {
+                    let obj = {};
+                    obj.email = item[0];
+                    obj.first_name = item[1];
+                    obj.last_name = item[2];
+                    result.push(obj);
+                  }
+                });
+                setListUsers(result);
+              }
+            } else {
+              toast.error("Wrong format CSV file!");
+            }
+          } else {
+            toast.error("Not found data on CSV file!");
+          }
+        },
+      });
+    }
+  };
+
   return (
     <>
       <div className="my-3 add-new">
@@ -135,7 +182,12 @@ const TableUsers = (props) => {
           <label className="btn btn-warning" htmlFor="import">
             <i className="fa-solid fa-file-import"></i> Import
           </label>
-          <input id="import" type="file" hidden />
+          <input
+            id="import"
+            type="file"
+            hidden
+            onChange={(event) => handleImportCSV(event)}
+          />
 
           <CSVLink
             data={dataExport}
