@@ -57,6 +57,7 @@ code {
        
       }
     }
+    
 
     button{
       margin-top: 15px;
@@ -66,12 +67,18 @@ code {
       border: none;
       color: rgba(22, 24, 35, 0.34);
       background-color: rgba(22, 24, 35, 0.06);
+      
       // pointer-events: none;
 
-      &:active{
+      &.active{
         color: #ffff;
         background-color: #fe2c55;
       }
+      
+    }
+
+    button[disabled=disabled], button:disabled{
+      cursor: not-allowed;
     }
 
     .back{
@@ -85,6 +92,19 @@ code {
         font-size: 13px;
         padding-right: 5px;
       }
+    }
+
+    .input-2{
+      position: relative;
+  
+      i{
+        position: absolute;
+        top: 14px;
+        right: 10px;
+        cursor: pointer;
+      }
+      
+
     }
     
   }
