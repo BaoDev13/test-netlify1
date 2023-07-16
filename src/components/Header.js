@@ -23,15 +23,17 @@ const Header = (props) => {
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="/">
-            <img
-              src={logoApp}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="React Bootstrap logo"
-            />
-            <span>Bao App</span>
+          <Navbar.Brand>
+            <NavLink to="/" className="nav-link">
+              <img
+                src={logoApp}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+              <span>Bao App</span>
+            </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
