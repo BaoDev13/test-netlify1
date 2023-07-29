@@ -14,98 +14,96 @@ code {
 
 .app-container{
 
-  .login-container{
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+  height: 300vh;
 
-    .title{
-      text-align: center;
-      font-size: 23px;
-      font-weight: 700;
-      padding-top: 30px;
-      color: rgb(22, 24, 35);
-      font-size: 32px;
-      margin: 16px auto;
-      font-weight: bold;
-
-    }
-    .text{
-      color: rgb(22, 24, 35);
-      font-weight: 600;
-      font-size: 15px;
-      margin-bottom: 5px;
-    }
-
-    input{
-      margin-bottom: 7px;
-      border-radius: 2px;
-      background-color: rgba(22, 24, 35, 0.06);
-      border: 1px solid rgba(22, 24, 35, 0.12);
-      padding-inline-start: 12px;
-      color: rgb(22, 24, 35);
-      line-height: 100%;
-      outline: none;
-      font-size: 16px;
-      height: 44px;
-      caret-color: rgb(254, 44, 85);
-      width: 100%;
-      padding-inline-end: unset;
-
-      &:hover{
-        background-color: #dedede;
-       
-      }
-    }
     
-
-    button{
-      margin-top: 15px;
-      font-weight: 600;
-      border-radius: 4px;
-      padding: 8px 5px;
-      border: none;
-      color: rgba(22, 24, 35, 0.34);
-      background-color: rgba(22, 24, 35, 0.06);
-      
-      // pointer-events: none;
-
-      &.active{
-        color: #ffff;
-        background-color: #fe2c55;
-      }
-      
-    }
-
-    button[disabled=disabled], button:disabled{
-      cursor: not-allowed;
-    }
-
-    .back{
-      font-weight: 600;
-      text-align: center;
-      cursor: pointer;
-      margin-top: 40px;
-
-
-      i{
-        font-size: 13px;
-        padding-right: 5px;
-      }
-    }
-
-    .input-2{
-      position: relative;
   
-      i{
-        position: absolute;
-        top: 14px;
-        right: 10px;
-        cursor: pointer;
+  .navbar{
+    padding: 25px 150px;
+    // background-color: aquamarine;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.5s ease;
+  }
+
+  .fixed-scroll{
+    background-color: #f2cc10 !important;
+    padding: 15px 150px;
+    // height: 5rem;
+    color: rgba(255,254,255,.8);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.5s ease;
+  }
+
+
+  .container_header{
+
+    margin: 0 !important;
+    padding: 0;
+    // max-width: 990px;
+
+    .navbar-brand{
+      margin: 0;
+      padding: 0;
+      max-width: 170px;
+      max-height: 90px;
+
+      .nav-link{
+        display: inline-block;
+        padding: 0;
+
+        img{
+          max-width: 170px;
+          max-height: 90px;
+        }
       }
+    }
       
+    .navbar-collapse{
+      flex-grow: 0 !important;
+      
+      .navbar-nav{
+        font-size: 18px;
+        font-family: 'Inter', sans-serif;
+
+        .nav-link{
+          padding: 0;
+          text-transform: uppercase;
+          margin-right: 50px;
+        }   
+        
+        .nav-link:nth-child(5){
+          margin-right: 0;
+        }
+
+      }
 
     }
-    
+
+  }
+
+
+  .containerr{
+    margin-top: 7rem;
+  }
+
+}
+
+@media (max-width: 1600px) {
+
+  
+}
+@media (max-width: 1200px) {
+  
+}
+@media (max-width: 1040px) {
+  
+}
+
+@media (max-width: 768px){
+  .app-container{
+    .navbar{
+      background-color: #f2cc10;
+    }
+
   }
 }
